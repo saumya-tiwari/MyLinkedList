@@ -39,7 +39,6 @@ public class MyLinkedList<E> {
 		System.out.println("\nPrinting List after removing first:--");
 		list.removeFirst();
 		list.printLinkedList(list);
-
 		System.out.println("\nRemove Last");
 		list.removeLast();
 		list.printLinkedList(list);
@@ -84,14 +83,19 @@ public class MyLinkedList<E> {
 		if (head == null) {
 			return;
 		}
-        Node previous =null;
+		Node previous = null;
 		Node current = head;
-		while (current.next != null) {
-			previous = current;
-			current = current.next;
-			
+		if (current.next == null)
+			removeFirst();
+		else {
+			while (current.next != null) {
+
+				previous = current;
+				current = current.next;
+
+			}
+			previous.next = null;
 		}
-		previous.next = null;
 
 	}
 

@@ -25,19 +25,23 @@ public class MyLinkedList<E> {
 
 		MyLinkedList list = new MyLinkedList();
 
-		/*list.addFirst(3);
+		list.addFirst(3);
 		list.addFirst(5);
 		list.addFirst(8);
 		list.addFirst(9);
 		list.addFirst(16);
 		list.addFirst(78);
 		System.out.println("\nPrinting List after adding element to front:--");
-		list.printLinkedList(list);*/
+		list.printLinkedList(list);
 		System.out.println("\nPrinting List after adding element to last:--");
 		list.addLast(100);
 		list.printLinkedList(list);
 		System.out.println("\nPrinting List after removing first:--");
 		list.removeFirst();
+		list.printLinkedList(list);
+
+		System.out.println("\nRemove Last");
+		list.removeLast();
 		list.printLinkedList(list);
 	}
 
@@ -75,9 +79,20 @@ public class MyLinkedList<E> {
 		}
 	}
 
-	public void removeLast(E data) {
+	public void removeLast() {
 
-		
+		if (head == null) {
+			return;
+		}
+        Node previous =null;
+		Node current = head;
+		while (current.next != null) {
+			previous = current;
+			current = current.next;
+			
+		}
+		previous.next = null;
+
 	}
 
 	public void printLinkedList(MyLinkedList list) {
